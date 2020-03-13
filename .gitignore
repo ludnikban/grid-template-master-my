@@ -2,3 +2,5 @@
 .idea/
 # ignore node_modules folder
 node_modules
+# ignore prepros-6.config
+prepros-6.config

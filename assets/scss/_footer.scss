@@ -1,0 +1,49 @@
+.footer {
+  padding: $gap*2.5 $gap $gap*3.5;
+  text-align: center;
+  background-color: $color-primary;
+}
+
+.footer__net {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  margin-bottom: $gap*2;
+  grid-template-columns: repeat(auto-fit, minmax($gap*2.5, max-content));
+}
+
+.footer__net::after {
+  position: absolute;
+  bottom: -$gap;
+  left: calc(50% - 75px / 2);
+  width: 75px;
+  height: 2px;
+  content: "";
+  background-color: $color-gray-dark;
+}
+
+.footer__net a {
+  display: block;
+  padding: $gap / 2;
+}
+
+.footer__net a:hover,
+.footer__net a:focus {
+  color: $color-accent;
+}
+
+.footer__net .fab {
+  font-size: 36px;
+}
+
+.footer__copyright span:nth-of-type(1) {
+  margin-right: -0.5em;
+  letter-spacing: 0.33em;
+  font-weight: 100;
+}
+
+.footer__copyright span:nth-of-type(2) {
+  letter-spacing: 0.05em;
+  color: $color-light;
+  font-weight: 700;
+}

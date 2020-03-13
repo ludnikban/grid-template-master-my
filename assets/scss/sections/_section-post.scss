@@ -1,0 +1,134 @@
+.post {
+  max-width: 970px;
+  margin: 0 auto;
+  &__title {
+    display: flex;
+    justify-content: flex-start;
+    margin: $gap * 3 $gap $gap;
+    @include sm-xs {
+      justify-content: center;
+    }
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $gap * 5;
+  }   
+  &__wrapper {
+    display: grid;
+    grid-gap: $gap;
+    padding: 0 $gap $gap;
+
+    @include lg-min {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+        "a1 a1 a2 a3"
+        "a4 a5 a6 a6"
+    }
+    @include lg-md {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        "a1 a1 a2"
+        "a3 a4 a4"
+        "a5 a6 a6"
+    }
+
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "a1 a2"
+        "a3 a4"
+        "a5 a6"
+    }
+    @include sm-xs {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas:
+        "a1"
+        "a2"
+        "a3"
+        "a4"
+        "a5"
+        "a6"
+    }
+  }
+}
+.post-item {
+  background-color: lighten($color-gray-light, 5%);
+  transition: background-color 0.5s; 
+
+  &:hover {
+    background-color: darken($color-gray-light, 5%);
+    
+    .post-item__img img {
+      transform: scale(1.1);
+    }
+    h3 {
+      color: $color-primary;
+    }
+    p {
+      color: $color-primary;
+    }
+  }
+   
+  &__link {
+    display: grid;
+    overflow: hidden;
+    height: 100%;
+    grid-template-rows: 300px 1fr;
+    color: $color-gray;
+    transition: color 0.5s;
+  }
+  &__img {
+    display: flex;
+    overflow: hidden;
+    align-content: center;
+    justify-content: center;
+    
+    img {
+      width: 100%;
+      transition: transform 0.5s;
+      object-fit: cover;
+    }
+  }
+  
+  &__text {
+    display: grid;
+    padding: $gap;
+    align-content: center;
+
+    h3 {
+      transition: color 0.5s;
+      text-align: center;
+      font-family: $font-header;
+    }
+
+    p {
+      transition: color 0.5s;
+      text-align: center;
+    }
+  }
+
+  &:nth-of-type(1) {
+    grid-area: a1;
+  }
+  
+  &:nth-of-type(2) {
+    grid-area: a2;
+  }
+  
+  &:nth-of-type(3) {
+    grid-area: a3;
+  }
+  
+  &:nth-of-type(4) {
+    grid-area: a4;
+  }
+  
+  &:nth-of-type(5) {
+    grid-area: a5;
+  }
+  
+  &:nth-of-type(6) {
+    grid-area: a6;
+  }
+}

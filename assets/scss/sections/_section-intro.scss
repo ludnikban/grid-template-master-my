@@ -1,0 +1,60 @@
+.intro {
+  background-color: $color-gray-light;
+  letter-spacing: 0.055em;
+
+  &__container {
+    max-width: 970px;
+    position: relative;
+    display: grid;
+    grid-template-columns:repeat(2 , 1fr);
+    margin: 0 auto;
+    padding: $gap * 5 $gap $gap * 3.5 $gap;
+
+    @include lg-min {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "a1 a2"
+    }
+    
+    @include lg-md {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "a1 a2"
+    }
+    @include md {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas:
+        "a1"
+        "a2"
+    }
+    @include sm-xs {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas:
+        "a1"
+        "a2"
+    }
+  }
+}
+.intro-left h2 {
+  margin: $gap / 2 $gap * 2.5 $gap / 2 0;
+}
+.intro-left p {
+  margin: $gap*1.5 $gap * 2.5 $gap*1.5 0;
+}
+
+.intro-left p:first-of-type {
+  position: relative;
+  padding-top: $gap;
+}
+.intro-left p:first-of-type::after {
+  position: absolute;
+  top: $gap;
+  right: -$gap*5;
+  width: 2px;
+  height: 200px;
+  content: "";
+  background-color: desaturate(lighten($color-gray, 40%), 40%)
+}
+.intro-right {
+  display: grid;
+  align-content: flex-start;
+  justify-items: center;
+}

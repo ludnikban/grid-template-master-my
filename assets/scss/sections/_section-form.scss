@@ -1,0 +1,75 @@
+.form {  
+  background-color: $color-primary;
+  border: none;
+  padding: $gap;
+  
+  &__container {
+    max-width: 930px;
+    position: relative;
+    display: grid;
+    grid-gap: $gap;
+    margin: 0 auto;
+
+    @include lg-min {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include lg-md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include md-sm {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-item {
+    &:nth-of-type(1) {
+      ::placeholder {
+        color: $color-light;
+      }
+
+      @include md-sm {
+        grid-column: 1 / span 2;
+      }
+    }
+    &__input {
+      width: 100%;
+      height: 60px;
+      padding-right: $gap;
+      padding-left: $gap;
+      font-size: 1.125rem;
+      letter-spacing: 0.15em;
+      border: 2px solid rgba($color-light, 0);
+      border-bottom-color: rgba($color-light, 0.25);
+      background-color: rgba($color-light, 0.05);
+      transition: background-color 0.5s, border-color 0.5s;
+
+      &:hover,
+      &:focus {
+        border-color: rgba($color-light, 0.15);
+        border-bottom: 1px solid $color-light;
+        background-color: rgba($color-light, 0.15);
+        
+        &::placeholder  {
+          color: lighten($color-gray, 15%);
+        }
+        &::placeholder :nth-of-type(1) {
+          color: $color-light;
+        }  
+      }
+    }
+  }  
+  
+  & .btn-accent {
+    width: 100%;
+    color: $color-light;
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba($color-light, 0.25);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  & .btn-accent:hover,
+  & .btn-accent:focus {
+    border: 1px solid $color-light;
+    background-color: $color-accent;
+    cursor: pointer;
+  }
+} 
