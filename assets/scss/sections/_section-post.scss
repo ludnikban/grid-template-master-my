@@ -1,44 +1,73 @@
 .post {
-  max-width: 970px;
-  margin: 0 auto;
-  &__title {
-    display: flex;
-    justify-content: flex-start;
-    margin: $gap * 3 $gap $gap;
-    @include sm-xs {
-      justify-content: center;
-    }
+  max-width: $xl + $gap * 2;
+  margin: auto;
+
+  @include lg-min {
+    padding: $gap * 5 0 $gap * 5 0;
   }
-  &__button {
-    display: flex;
-    justify-content: center;
-    margin-bottom: $gap * 5;
-  }   
+  @include lg-md {
+    // padding-top: $gap * 4;
+    // padding-bottom: $gap * 4;
+    padding: $gap * 4 0 $gap * 4 0;
+  }
+  @include md {
+    padding-top: $gap * 3;
+    padding-bottom: $gap * 3;
+  }
+  &__container {
+    @extend %container;
+  }
+
+    &__title {
+      display: flex;
+      justify-content: flex-start;
+      @include lg-min {
+        margin-top: 0;
+        margin-bottom: 56px;
+        font-size: 2.5rem;
+      }
+      @include lg-md {
+        margin-top: 0;
+        margin-bottom: 42px;
+        font-size: 2rem;
+      }
+      @include md-sm {
+        padding-left: $gap;
+        margin-top: 0;
+        margin-bottom: 36px;
+        font-size: 1.5rem;
+      }
+      @include sm {
+        text-align: center;
+        margin-bottom: 36px;
+        font-size: 1.5rem;
+      }
+    }
+
   &__wrapper {
     display: grid;
     grid-gap: $gap;
-    padding: 0 $gap $gap;
-
+    margin-bottom: $gap;
     @include lg-min {
       grid-template-columns: repeat(4, 1fr);
       grid-template-areas:
         "a1 a1 a2 a3"
-        "a4 a5 a6 a6"
+        "a4 a5 a6 a6";
     }
     @include lg-md {
       grid-template-columns: repeat(3, 1fr);
       grid-template-areas:
         "a1 a1 a2"
         "a3 a4 a4"
-        "a5 a6 a6"
+        "a5 a5 a6";
     }
 
-    @include md {
+    @include md-sm {
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
         "a1 a2"
         "a3 a4"
-        "a5 a6"
+        "a5 a6";
     }
     @include sm-xs {
       grid-template-columns: repeat(1, 1fr);
@@ -48,9 +77,29 @@
         "a3"
         "a4"
         "a5"
-        "a6"
+        "a6";
     }
   }
+  &__button {
+    display: flex;
+    justify-content: center; 
+
+    .btn-accent {
+      
+      @include sm {
+        padding: 18px 20px;
+        
+        width: 100%;
+        font-size: 1.5rem;
+      }
+      @include sm-xs {
+        min-width: 250px;
+        font-size: 1.125rem;
+      }       
+    }
+  }
+  
+  
 }
 .post-item {
   background-color: lighten($color-gray-light, 5%);
@@ -64,9 +113,13 @@
     }
     h3 {
       color: $color-primary;
+      font-family: $font-header;
+      font-size: 1.125rem;
+      letter-spacing: 0,9px;
     }
     p {
       color: $color-primary;
+      font-family: $font-main;
     }
   }
    

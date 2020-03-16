@@ -1,12 +1,17 @@
 .skills {
-  padding: ($gap / 2) ($gap / 2) ($gap * 2);
+  @include sm-min {
+    padding: ($gap / 2) ($gap / 2) ($gap * 2);
+  }
+  @include sm {
+    padding: $gap;
+  }
 
   &__container {
-    padding-bottom: $gap;
     display: grid;
-    grid-gap: $gap / 2;
-
+    padding-bottom: $gap;
+    
     @include lg-min {
+      grid-gap: $gap / 2;
       grid-template-columns: repeat(4, 1fr);
       grid-template-areas:
         "a1 a1 a2 a3"
@@ -15,6 +20,7 @@
     }
 
     @include lg-md {
+      grid-gap: $gap / 2;
       grid-template-columns: repeat(3, 1fr);
       grid-template-areas:
         "a1 a1 a2"
@@ -24,7 +30,8 @@
         "a7 a9 a9";
     }
 
-    @include md {
+    @include md-sm {
+      grid-gap: $gap / 2;
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
         "a1 a2"
@@ -34,19 +41,63 @@
         "a5 a7"
         "a8 a9";
     }
+    @include sm {
+      grid-gap: $gap;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "a1"
+        "a2"
+        "a3"
+        "a4"
+        "a5"
+        "a6"
+        "a7"
+        "a8"
+        "a9";
+    }
+    
   }
-
   &__button {
     display: flex;
     justify-content: center;
+
+    .btn-accent {
+    
+      @include sm {
+        padding: 18px 20px;
+        width: 100%;
+        font-size: 1.5rem;
+      }
+      @include sm-xs {
+        min-width: 250px;
+        width: 100%;
+        font-size: 1.125rem;
+      }       
+    }
   }
+  
 }
 
 .skill-item {
-  background-color: $color-primary;
-  min-height: calc(33vh - 12px);
+
   position: relative;
+  display: grid;
+  align-items: center;
+  justify-items: center;
   overflow: hidden;
+  padding: $gap;
+
+  @media (min-height: 691px) {
+    min-height: calc(33.33vh - #{$gap} * 0.66);
+  }
+
+  @media (max-height: 690px) {
+    min-height: calc(230px - #{$gap} * 0.66);
+  }
+
+/**/
+  // background-color: $color-primary;
+  // min-height: calc(33vh - 12px);
 
   &:nth-of-type(1) {
     grid-area: a1;
@@ -89,32 +140,38 @@
     background-color: $color-primary;
     z-index: 1;
     transition: opacity 0.5s;
-
     @include abs-position;
   }
 
   &__image {
     background-size: cover;
+    background-color: $color-primary;
     background-position: 50% 50%;
     transition: transform 0.5s;
-
     @include abs-position;
   }
 
   &__title {
     z-index: 2;
     margin: 0;
-
+    font-family: $font-main;
+    letter-spacing: 0.125rem;
     @include abs-position;
+    @include md-min {
+      font-size: 1.25rem;
+    }
+    @include md {
+      font-size: 1.125rem;
+    }
   }
 
   &__link {
     display: flex;
-    padding: $gap;
-    width: 100%;
-    height: 100%;
     justify-content: center;
     align-items: center;
+    padding: $gap;
+    // width: 100%;
+    height: 100%;
     transition: color 0.5s;
   }
 

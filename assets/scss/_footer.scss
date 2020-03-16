@@ -19,7 +19,7 @@
   width: 75px;
   height: 2px;
   content: "";
-  background-color: $color-gray-dark;
+  background-color: rgba($color-light, 0.1);
 }
 
 .footer__net a {
@@ -33,7 +33,7 @@
 }
 
 .footer__net .fab {
-  font-size: 36px;
+  font-size: 2.25rem;
 }
 
 .footer__copyright span:nth-of-type(1) {
@@ -44,6 +44,6 @@
 
 .footer__copyright span:nth-of-type(2) {
   letter-spacing: 0.05em;
-  color: $color-light;
+  color: $color-gray-light;
   font-weight: 700;
 }
