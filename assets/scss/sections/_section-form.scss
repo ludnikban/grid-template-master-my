@@ -4,7 +4,7 @@
   padding: $gap * 1.5 0;
   
   &__container {
-    max-width: $xl + $gap * 2;
+    max-width: $ul;
     display: grid;
     grid-gap: $gap;
     margin: auto;
@@ -20,6 +20,7 @@
   }
 
   .form-item {
+
     &:nth-of-type(1) {
       ::placeholder {
         color: $color-light;
@@ -34,6 +35,9 @@
       height: 60px;
       padding-right: $gap;
       padding-left: $gap;
+
+      overflow: visible;
+      color: $color-light;
 
       transition: background-color 0.5s, border-color 0.5s;
       letter-spacing: 0.15em;
