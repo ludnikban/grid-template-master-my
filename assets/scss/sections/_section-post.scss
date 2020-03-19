@@ -19,6 +19,7 @@
     &__title {
       display: flex;
       justify-content: flex-start;
+      letter-spacing: 0.1em;
       @include lg-min {
         margin-top: 0;
         margin-bottom: 56px;
